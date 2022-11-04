@@ -1,4 +1,3 @@
-
 #ifndef TREENODE_HPP_
 #define TREENODE_HPP_
 #include <sstream>

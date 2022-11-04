@@ -27,6 +27,6 @@ public:
 	virtual ~TreeListNode();
 };
 
-} /* namespace trees */
+} 
 
 #endif /* CHILDNODE_HPP_ */
