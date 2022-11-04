@@ -32,30 +32,68 @@ int main(int nargs, char** vargs){
 		}
 		else{
 			if (words[0]== "cd"){
-				if (words.size()==1){
+				if (words.size()<2){
 					cout<<"Se debe especificar un archivo"<<endl;
 				}
-				else{
-					current_node = words[1];
+				if(words.size()>2){
+					cout<<"Demasiados argumentos"<<endl;
+				} 
+				else{ 
+					trees::TreeNode* node = tree.find(words[1]);
+					if (node != nullptr){
+						current_node = words[1];
+					}
+					else{
+						cout<<"Esta carpeta no existe"<<endl;
+					}
 				}
 			}
 			if (words[0]== "ls"){
-				if (words.size()==1){
+				if (words.size()<2){
 					cout<<"Se debe especificar un archivo"<<endl;
 				}
+				if(words.size()>2){
+					cout<<"Demasiados argumentos"<<endl;
+				} 
 				else{
 					trees::TreeNode* node = tree.find(words[1]);
 					if (node != nullptr){
 						node->getChildren()->print();
 					}
+					else{
+						cout<<"Esta carpeta no existe"<<endl;
+					}
 				}
 			}
-			if (words[0] == "mkfile"){
-				if (words.size()==1){
+			if (words[0] == "mkdir"){
+				if (words.size()<2){
 					cout<<"Se debe especificar un archivo"<<endl;
 				}
+				if(words.size()>2){
+					cout<<"Demasiados argumentos"<<endl;
+				} 
 				else{
 					tree.insert(words[1], current_node);
+				}
+			}
+			if (words[0] == "mkfile"){ // esto es para insertar un archivo, falta cambiar eso en el ADT del TreeNode, por mientras guarda un archivo en un archivo especificado
+				if (words.size()<2){
+					cout<<"Faltan argumentos"<<endl;
+				}
+				if (words.size()<3){
+					cout<<"Faltan el nombre del archivo"<<endl;
+				}
+				if (words.size()>3){
+					cout<<"Demasiados argumentos"<<endl;
+				}
+				else{
+					trees::TreeNode* node = tree.find(words[1]);
+					if (node != nullptr){
+						tree.insert(words[2], words[1]);
+					}
+					else{
+						cout<<"La carpeta "<< words[1]<<" no existe"<<endl;
+					}
 				}
 			}
 		}
