@@ -25,10 +25,10 @@ void Tree::insert(TreeNode* child, TreeNode* parent){
 	}
 }
 
-void Tree::insert(std::string val, std::string val_parent){
+void Tree::insert(std::string val, std::string val_parent, int x){
 	TreeNode* parent = find(val_parent);
 	if (parent != nullptr){
-		TreeNode* child = new TreeNode(val);
+		TreeNode* child = new TreeNode(val, x);
 		insert(child, parent);
 		std::cout << "insertado " << val << " in " << val_parent << " at " << parent << std::endl;
 	}

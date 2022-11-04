@@ -14,7 +14,7 @@ private:
 	TreeList* children;
 public:
 	TreeNode();
-	TreeNode(std::string val);
+	TreeNode(std::string val, int x);
 	void setParent(TreeNode* node);
 	void setNombre(std::string val);
 	void setTipo(int val);
