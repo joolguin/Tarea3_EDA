@@ -9,17 +9,20 @@ class TreeList;
 class TreeNode {
 private:
 	TreeNode* parent;
-	std::string data; //NOMBRE DEL ARCHIVO
+	std::string nombre; //NOMBRE DEL ARCHIVO
+	int tipo;
 	TreeList* children;
 public:
 	TreeNode();
 	TreeNode(std::string val);
 	void setParent(TreeNode* node);
-	void setData(std::string val);
+	void setNombre(std::string val);
+	void setTipo(int val);
 	void setChildren(TreeList* list);
 	TreeNode* getParent();
-	std:: string getData();
+	std:: string getNombre();
 	TreeList* getChildren();
+	int getTipo();
 	virtual ~TreeNode();
 };
 
