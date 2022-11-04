@@ -9,10 +9,10 @@
 
 namespace trees {
 
-TreeNode::TreeNode(): parent(nullptr), nombre(), children(new TreeList()) {
+TreeNode::TreeNode(): parent(nullptr), nombre(),tipo() , children(new TreeList()) {
 }
 
-TreeNode::TreeNode(std::string val): parent(nullptr), nombre(val), children(new TreeList()) {
+TreeNode::TreeNode(std::string val, int x): parent(nullptr), nombre(val), tipo(x),children(new TreeList()) {
 }
 
 void TreeNode::setParent(TreeNode* node){

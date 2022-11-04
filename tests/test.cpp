@@ -11,7 +11,7 @@ int main(int nargs, char** vargs){
 	cout<<"Autores: <Matias Leyton> y <Josefa Olguin>"<<endl<<"/#"<<endl;
 	
 	trees::Tree tree;
-	tree.setRoot(new trees::TreeNode("/"));
+	tree.setRoot(new trees::TreeNode("/", 1));
 	string current_node = "/";
 	bool exit = true; 
 	while (exit){
@@ -30,13 +30,14 @@ int main(int nargs, char** vargs){
 		if (words[0] == "exit"){
 			exit = false;
 		}
+
 		else{
 			if (words[0]== "cd"){
 				if (words.size()<2){
-					cout<<"Se debe especificar un archivo"<<endl;
+					cout<<"cd: se debe especificar un archivo"<<endl;
 				}
 				if(words.size()>2){
-					cout<<"Demasiados argumentos"<<endl;
+					cout<<"cd: demasiados argumentos"<<endl;
 				} 
 				else{ 
 					trees::TreeNode* node = tree.find(words[1]);
@@ -44,16 +45,17 @@ int main(int nargs, char** vargs){
 						current_node = words[1];
 					}
 					else{
-						cout<<"Esta carpeta no existe"<<endl;
+						cout<<"cd: no existe el archivo o carpeta: "<<words[1]<<endl;
 					}
 				}
 			}
+
 			if (words[0]== "ls"){
 				if (words.size()<2){
-					cout<<"Se debe especificar un archivo"<<endl;
+					cout<<"ls: se debe especificar un archivo"<<endl;
 				}
 				if(words.size()>2){
-					cout<<"Demasiados argumentos"<<endl;
+					cout<<"ls: demasiados argumentos"<<endl;
 				} 
 				else{
 					trees::TreeNode* node = tree.find(words[1]);
@@ -61,22 +63,40 @@ int main(int nargs, char** vargs){
 						node->getChildren()->print();
 					}
 					else{
-						cout<<"Esta carpeta no existe"<<endl;
+						cout<<"ls: no existe el archivo o carpeta: "<<words[1]<<endl;
 					}
 				}
 			}
-			if (words[0] == "mkdir"){
+
+			if (words[0] == "mkdir"){ 
 				if (words.size()<2){
-					cout<<"Se debe especificar un archivo"<<endl;
+					cout<<"mkdir: se debe especificar un archivo"<<endl;
 				}
 				if(words.size()>2){
-					cout<<"Demasiados argumentos"<<endl;
+					cout<<"mkdir: demasiados argumentos"<<endl;
 				} 
 				else{
-					tree.insert(words[1], current_node);
+					trees::TreeNode* node = tree.find(words[1]);//cambiar: solamente no pueden haber dos archivos con el mismo nombre en el mismo NIVEL 
+					trees::TreeNode* nodeparent = tree.find(current_node);
+					if (node == nullptr){
+						if (current_node == "/"){
+							tree.insert(words[1], current_node, 1);
+						}
+						else if (nodeparent->getTipo() == 1){
+							tree.insert(words[1], current_node, 1);
+						}
+						
+						else{
+							cout<<"mkdir: no se puede insertar en un archivo"<<endl;
+						}
+					}
+					else{
+						cout<<"mkdir: "<<words[1]<<": la carpeta ya existe"<<endl;
+					}
 				}
 			}
-			if (words[0] == "mkfile"){ // esto es para insertar un archivo, falta cambiar eso en el ADT del TreeNode, por mientras guarda un archivo en un archivo especificado
+
+			if (words[0] == "mkfile"){ 
 				if (words.size()<2){
 					cout<<"Faltan argumentos"<<endl;
 				}
@@ -88,24 +108,69 @@ int main(int nargs, char** vargs){
 				}
 				else{
 					trees::TreeNode* node = tree.find(words[1]);
+					trees::TreeNode* nodeparent = tree.find(current_node);
 					if (node != nullptr){
-						tree.insert(words[2], words[1]);
+						if (words[1] == "/"){
+							tree.insert(words[1], words[1], 0);
+						}
+						else if (nodeparent->getTipo() == 1){
+							tree.insert(words[2], words[1], 0);
+						}
+						else{
+							cout<<"mkfile: no se puede insertar en un archivo"<<endl;
+						}
 					}
 					else{
-						cout<<"La carpeta "<< words[1]<<" no existe"<<endl;
+						cout<<"mkfile: La carpeta "<< words[1]<<" no existe"<<endl;
 					}
+				}
+			}
+/*
+			if (words[0]=="rm"){
+				if (words.size()<2){
+					cout<<"rm: se debe especificar un archivo"<<endl;
+				}
+				if(words.size()>2){
+					cout<<"rm: demasiados argumentos"<<endl;
+				} 
+				else{
+					trees::TreeNode* node = tree.find(words[1]);
+					if (node != nullptr){
+						///
+					}
+					else{
+						cout<<"rm: La carpeta "<< words[1]<<" no existe"<<endl;
+					}
+				}
+				
+			}
+*/
+			if (words[0]=="tree"){
+				if (words.size()<2){
+					cout<<"mkdir: se debe especificar un archivo"<<endl;
+				}
+				if(words.size()>2){
+					cout<<"mkdir: demasiados argumentos"<<endl;
+				} 
+				else{
+				trees::TreeNode* node = tree.find(words[1]);
+				if (node != nullptr){
+					tree.traverse_rec(node, 1);
+				}
+				else{
+					cout<<"tree: La carpeta "<< words[1]<<" no existe"<<endl;
+				}
 				}
 			}
 		}
 		words.clear();
 	}
-
-	tree.traverse();
-
+/*
 	trees::TreeNode* node = tree.find("/");
 	if (node != nullptr){
 		node->getChildren()->print();
 	}
+	*/
 	return 0;
 }
 
