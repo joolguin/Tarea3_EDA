@@ -22,6 +22,7 @@ void Tree::setRoot(TreeNode* node){
 void Tree::insert(TreeNode* child, TreeNode* parent){
 	if (parent != nullptr){
 		parent->getChildren()->insertFirst(child);
+		child->setParent(parent);
 	}
 }
 

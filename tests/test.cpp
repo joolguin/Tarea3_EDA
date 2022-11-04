@@ -125,7 +125,7 @@ int main(int nargs, char** vargs){
 					}
 				}
 			}
-/*
+
 			if (words[0]=="rm"){
 				if (words.size()<2){
 					cout<<"rm: se debe especificar un archivo"<<endl;
@@ -135,8 +135,10 @@ int main(int nargs, char** vargs){
 				} 
 				else{
 					trees::TreeNode* node = tree.find(words[1]);
+					trees::TreeList* childrens = node->getParent()->getChildren();
 					if (node != nullptr){
-						///
+						childrens->remove(node->getNombre());
+						delete node;
 					}
 					else{
 						cout<<"rm: La carpeta "<< words[1]<<" no existe"<<endl;
@@ -144,7 +146,7 @@ int main(int nargs, char** vargs){
 				}
 				
 			}
-*/
+
 			if (words[0]=="tree"){
 				if (words.size()<2){
 					cout<<"mkdir: se debe especificar un archivo"<<endl;
