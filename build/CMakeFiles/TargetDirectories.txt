@@ -1,3 +1,0 @@
-/Users/jose/Documents/trees/build/CMakeFiles/test_tree.dir
-/Users/jose/Documents/trees/build/CMakeFiles/edit_cache.dir
-/Users/jose/Documents/trees/build/CMakeFiles/rebuild_cache.dir
