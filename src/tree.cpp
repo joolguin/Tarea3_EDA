@@ -37,7 +37,7 @@ void Tree::insert(std::string val, std::string val_parent){
 TreeNode* Tree::find_rec(std::string val, TreeNode* node){
 	TreeNode* ans = nullptr;
 	if (node != nullptr){
-		if (node->getData() == val){
+		if (node->getNombre() == val){
 			ans = node;
 		}
 		else{ // search in children
@@ -61,7 +61,7 @@ TreeNode* Tree::find(std::string val){
 void Tree::traverse_rec(TreeNode* node, int level){
 	if (node != nullptr){
 		std::cout << std::string(level*2, '-');
-		std::cout<<node->getData() << " at level " << level <<std::endl;
+		std::cout<<node->getNombre() << " at level " << level <<std::endl;
 		TreeList* childrenList = node->getChildren();
 		TreeListNode* ptr = childrenList->getHead();
 		while (ptr!=nullptr){

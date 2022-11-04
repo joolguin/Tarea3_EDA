@@ -10,7 +10,7 @@ class TreeNode {
 private:
 	TreeNode* parent;
 	std::string nombre; //NOMBRE DEL ARCHIVO
-	int tipo;
+	int tipo; //Carpeta o Archivo
 	TreeList* children;
 public:
 	TreeNode();

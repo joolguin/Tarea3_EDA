@@ -41,7 +41,7 @@ void TreeList::remove(std::string val){
 	TreeListNode* ptr = head;
 	TreeListNode* ptr_prev = nullptr;
 	while (ptr != nullptr){
-		if ((ptr->getData())->getData() == val){
+		if ((ptr->getData())->getNombre() == val){
 			//erase node
 			if (ptr_prev == nullptr) {
 				head = ptr->getNext();
@@ -69,7 +69,7 @@ void TreeList::removeAll(){
 
 TreeNode* TreeList::find(std::string val){
 	TreeListNode* ptr = head;
-	while ((ptr != nullptr) && ((ptr->getData())->getData() != val)){
+	while ((ptr != nullptr) && ((ptr->getData())->getNombre() != val)){
 		ptr = ptr->getNext();
 	}
 	return ptr->getData();
@@ -82,7 +82,7 @@ bool TreeList::isEmpty(){
 void TreeList::print(){
 	TreeListNode* ptr = head;
 	while (ptr != nullptr){
-		std::cout << ptr->getData()->getData() << " - " <<std::endl;
+		std::cout << ptr->getData()->getNombre() << " - " <<std::endl;
 		ptr = ptr -> getNext();
 	}
 }
