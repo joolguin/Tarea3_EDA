@@ -187,6 +187,18 @@ int main(int nargs, char** vargs){
 				}
 				}
 			}
+
+			if (words[0]=="find"){
+				if (words.size()<3){
+					cout<<"find: se debe especificar una carpeta y un nombre a buscar"<<endl;
+				}
+				if(words.size()>3){
+					cout<<"find: demasiados argumentos"<<endl;
+				} 
+				else{
+					cout<<tree.find_rec1(words[2], tree.find(words[1]))->getNombre()<<endl;
+				}
+			}
 		}
 		words.clear();
 	}

@@ -53,6 +53,24 @@ TreeNode* Tree::find_rec(std::string val, TreeNode* node){
 	return ans;
 }
 
+TreeNode* Tree::find_rec1(std::string val, TreeNode* node){
+	TreeNode* ans = nullptr;
+	if (node != nullptr){
+		if (node->getNombre() == val){
+			ans = node;
+		}
+		else{ // search in children
+			TreeList* childrenList = node->getChildren();
+			TreeListNode* ptr = childrenList->getHead();
+			while (ptr!=nullptr){
+				ans = find_rec1(val, ptr->getData());
+				ptr = ptr->getNext();
+			}
+		}
+	}
+	return ans;
+}
+
 TreeNode* Tree::find(std::string val){
 	TreeNode* ans = find_rec(val, root);
 	return ans;

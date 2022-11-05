@@ -19,10 +19,16 @@ void TreeNode::setParent(TreeNode* node){
 	parent = node;
 }
 void TreeNode::setNombre(std::string val){
-		nombre = val;
+	nombre = val;
 }
 void TreeNode::setTipo(int val){
 	tipo = val;
+}
+std::string TreeNode::getNombre(){
+	return nombre;
+}
+int TreeNode::getTipo(){
+	return tipo;
 }
 void TreeNode::setChildren(TreeList* list){
 	children = list;
@@ -30,15 +36,10 @@ void TreeNode::setChildren(TreeList* list){
 TreeNode* TreeNode::getParent(){
 	return parent;
 }
-std::string TreeNode::getNombre(){
-	return nombre;
-}
 TreeList* TreeNode::getChildren(){
 	return children;
 }
-int TreeNode::getTipo(){
-	return tipo;
-}
+
 
 TreeNode::~TreeNode() {
 	//action when a treeNode is deleted

@@ -22,6 +22,7 @@ public:
 	void insert(TreeNode* node, TreeNode* parent);
 	void insert(std::string child, std::string parent, int x);
 	TreeNode* find_rec(std::string val, TreeNode* node);
+	TreeNode* find_rec1(std::string val, TreeNode* node);
 	TreeNode* find(std::string val);
 	void traverse_rec(TreeNode* node, int level);
 	void traverse();
