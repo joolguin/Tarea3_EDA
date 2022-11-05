@@ -53,10 +53,15 @@ int main(int nargs, char** vargs){
 					else{
 						trees::TreeNode* node = tree.find(words[1]);
 						if (node != nullptr){
-							current_node = words[1];
+							if (node-> getTipo()== 1){
+								current_node = words[1];
+							}
+							else{
+								cout<<"cd: esto es un archivo"<<endl;
+							}
 						}
 						else{
-							cout<<"cd: no existe el archivo o carpeta: "<<words[1]<<endl;
+							cout<<"cd: no existe la carpeta: "<<words[1]<<endl;
 						}
 					}
 					
@@ -107,7 +112,7 @@ int main(int nargs, char** vargs){
 					cout<<"mkdir: demasiados argumentos"<<endl;
 				} 
 				else{
-					trees::TreeNode* node = tree.find(words[1]);//cambiar: solamente no pueden haber dos archivos con el mismo nombre en el mismo NIVEL 
+					trees::TreeNode* node = tree.find(words[1]);
 					trees::TreeNode* nodeparent = tree.find(current_node);
 					if (node == nullptr){
 						if (current_node == "/"){
@@ -257,6 +262,3 @@ int main(int nargs, char** vargs){
 	}
 	return 0;
 }
-
-
-
