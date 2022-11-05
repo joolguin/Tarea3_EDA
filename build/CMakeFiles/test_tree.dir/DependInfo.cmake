@@ -8,11 +8,11 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "D:/Ramos U/OneDrive - miuandes.cl/6 semestre/Estructura de datos y algoritmos/Tarea 3/Tarea3_EDA/src/tree.cpp" "CMakeFiles/test_tree.dir/src/tree.cpp.obj" "gcc" "CMakeFiles/test_tree.dir/src/tree.cpp.obj.d"
-  "D:/Ramos U/OneDrive - miuandes.cl/6 semestre/Estructura de datos y algoritmos/Tarea 3/Tarea3_EDA/src/treeList.cpp" "CMakeFiles/test_tree.dir/src/treeList.cpp.obj" "gcc" "CMakeFiles/test_tree.dir/src/treeList.cpp.obj.d"
-  "D:/Ramos U/OneDrive - miuandes.cl/6 semestre/Estructura de datos y algoritmos/Tarea 3/Tarea3_EDA/src/treeListNode.cpp" "CMakeFiles/test_tree.dir/src/treeListNode.cpp.obj" "gcc" "CMakeFiles/test_tree.dir/src/treeListNode.cpp.obj.d"
-  "D:/Ramos U/OneDrive - miuandes.cl/6 semestre/Estructura de datos y algoritmos/Tarea 3/Tarea3_EDA/src/treeNode.cpp" "CMakeFiles/test_tree.dir/src/treeNode.cpp.obj" "gcc" "CMakeFiles/test_tree.dir/src/treeNode.cpp.obj.d"
-  "D:/Ramos U/OneDrive - miuandes.cl/6 semestre/Estructura de datos y algoritmos/Tarea 3/Tarea3_EDA/tests/test.cpp" "CMakeFiles/test_tree.dir/tests/test.cpp.obj" "gcc" "CMakeFiles/test_tree.dir/tests/test.cpp.obj.d"
+  "/Users/jose/documents/trees/src/tree.cpp" "CMakeFiles/test_tree.dir/src/tree.cpp.o" "gcc" "CMakeFiles/test_tree.dir/src/tree.cpp.o.d"
+  "/Users/jose/documents/trees/src/treeList.cpp" "CMakeFiles/test_tree.dir/src/treeList.cpp.o" "gcc" "CMakeFiles/test_tree.dir/src/treeList.cpp.o.d"
+  "/Users/jose/documents/trees/src/treeListNode.cpp" "CMakeFiles/test_tree.dir/src/treeListNode.cpp.o" "gcc" "CMakeFiles/test_tree.dir/src/treeListNode.cpp.o.d"
+  "/Users/jose/documents/trees/src/treeNode.cpp" "CMakeFiles/test_tree.dir/src/treeNode.cpp.o" "gcc" "CMakeFiles/test_tree.dir/src/treeNode.cpp.o.d"
+  "/Users/jose/documents/trees/tests/test.cpp" "CMakeFiles/test_tree.dir/tests/test.cpp.o" "gcc" "CMakeFiles/test_tree.dir/tests/test.cpp.o.d"
   )
 
 # Targets to which this target links.

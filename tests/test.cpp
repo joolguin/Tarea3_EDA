@@ -39,14 +39,22 @@ int main(int nargs, char** vargs){
 				if(words.size()>2){
 					cout<<"cd: demasiados argumentos"<<endl;
 				} 
-				else{ 
-					trees::TreeNode* node = tree.find(words[1]);
-					if (node != nullptr){
-						current_node = words[1];
-					}
-					else{
-						cout<<"cd: no existe el archivo o carpeta: "<<words[1]<<endl;
-					}
+				else{/*
+					if(words[1] == "."){
+						
+					} 
+					if(words[1]== ".."){
+
+					}*/
+					
+						trees::TreeNode* node = tree.find(words[1]);
+						if (node != nullptr){
+							current_node = words[1];
+						}
+						else{
+							cout<<"cd: no existe el archivo o carpeta: "<<words[1]<<endl;
+						}
+					
 				}
 			}
 
@@ -58,12 +66,29 @@ int main(int nargs, char** vargs){
 					cout<<"ls: demasiados argumentos"<<endl;
 				} 
 				else{
-					trees::TreeNode* node = tree.find(words[1]);
-					if (node != nullptr){
-						node->getChildren()->print();
+					if(words[1] == "."){
+						trees::TreeNode* node = tree.find(current_node);
+						if (node != nullptr){
+							node->getChildren()->print();
+						}
+					} 
+					else if(words[1]== ".." && current_node != "/"){
+						trees::TreeNode* node = tree.find(current_node);
+						trees::TreeNode* parent = node->getParent();
+						string name = parent->getNombre();
+						trees::TreeNode* node1 = tree.find(name);
+						if (node1 != nullptr){
+							node1->getChildren()->print();
+						}
 					}
 					else{
-						cout<<"ls: no existe el archivo o carpeta: "<<words[1]<<endl;
+						trees::TreeNode* node = tree.find(words[1]);
+						if (node != nullptr){
+							node->getChildren()->print();
+						}
+						else{
+							cout<<"ls: no existe el archivo o carpeta: "<<words[1]<<endl;
+						}
 					}
 				}
 			}
@@ -138,13 +163,11 @@ int main(int nargs, char** vargs){
 					trees::TreeList* childrens = node->getParent()->getChildren();
 					if (node != nullptr){
 						childrens->remove(node->getNombre());
-						delete node;
 					}
 					else{
 						cout<<"rm: La carpeta "<< words[1]<<" no existe"<<endl;
 					}
 				}
-				
 			}
 
 			if (words[0]=="tree"){
@@ -176,15 +199,3 @@ int main(int nargs, char** vargs){
 	return 0;
 }
 
-//COMANDOS DENTRO DEL WHILE
-//cd == tree.find()  raiz o nodo actual
-//ls == getChildren de la raiz o el nodo actual 
-//mkdir == crear nodo
-//mkfile == tree.insert() insertamos archivo en cierta carpeta 
-//rm == remove (se borra el nado y todos sus hijos) 
-//tree == tree.traverse
-//find == 
-//exit == condicion del while cumplida
-//condicion insert a nodo -> no tiene que ser archivo 
-//root == /
-// carpetas: 
