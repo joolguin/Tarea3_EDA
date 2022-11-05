@@ -99,7 +99,7 @@ int main(int nargs, char** vargs){
 								node->getChildren()->print();
 							}
 							else{
-								cout<<"cd: esto es un archivo"<<endl;
+								cout<<"ls: esto es un archivo"<<endl;
 							}
 							
 						}
