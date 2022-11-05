@@ -95,7 +95,13 @@ int main(int nargs, char** vargs){
 					else{
 						trees::TreeNode* node = tree.find(words[1]);
 						if (node != nullptr){
-							node->getChildren()->print();
+							if (node-> getTipo()== 1){
+								node->getChildren()->print();
+							}
+							else{
+								cout<<"cd: esto es un archivo"<<endl;
+							}
+							
 						}
 						else{
 							cout<<"ls: no existe el archivo o carpeta: "<<words[1]<<endl;
